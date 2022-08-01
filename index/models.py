@@ -54,22 +54,25 @@ class Language(models.Model):
 
 class Expert(models.Model):
     PPD_CHOICES = (
-        ('short_term', 'short_term'),
-        ('long_term', 'long_term'),
+        ('Short term', 'short_term'),
+        ('Long term', 'long_term'),
     )
+    # PPD_CHOICES = (
+    #     ('short_term', 'Short term'),
+    #     ('long_term', 'Long term'),
+    # )
 
-    title = models.ForeignKey(Title, on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=50, null=True, blank=True)
-    last_name = models.CharField(max_length=50, null=True, blank=True)
-    email = models.EmailField(max_length=254, null=True, blank=True)
-    phone = models.CharField(max_length=20, null=True, blank=True)
-    sector = models.ForeignKey(Sector, on_delete=models.CASCADE, null=True, blank=True)
+    title = models.ForeignKey(Title, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=254, unique=True)
+    phone = models.CharField(max_length=20, unique=True)
+    sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
     work_experience = models.ForeignKey(Work_experience, on_delete=models.CASCADE)
-    spoken_languages = models.ForeignKey(Language, on_delete=models.CASCADE, null=True, blank=True)
-    citizenship = models.ForeignKey(Citezenship, on_delete=models.CASCADE, null=True, blank=True)
-    prefer_project_duration = models.CharField(max_length=10, choices=PPD_CHOICES, default='short_term', null=True,
-                                               blank=True)
-    cv_file = models.FileField(upload_to='media/cv_files/', null=True, blank=True)
+    spoken_languages = models.ForeignKey(Language, on_delete=models.CASCADE)
+    citizenship = models.ForeignKey(Citezenship, on_delete=models.CASCADE)
+    prefer_project_duration = models.CharField(max_length=10, choices=PPD_CHOICES)
+    cv_file = models.FileField(upload_to='media/cv_files/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
