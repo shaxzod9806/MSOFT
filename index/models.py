@@ -82,6 +82,3 @@ class Expert(models.Model):
     class Meta:
         verbose_name = 'Expert'
         verbose_name_plural = 'Experts'
-
-        # ordering = ['-created_at']  # -created_at means descending order
-        # ordering = ['-created_at']  # -created_at means descending order
