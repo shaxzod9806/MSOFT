@@ -5,7 +5,6 @@ admin.site.register(models.Title)
 admin.site.register(models.Sector)
 admin.site.register(models.Work_experience)
 admin.site.register(models.Citezenship)
-# admin.site.register(models.Expert)
 admin.site.register(models.Language)
 
 

@@ -57,11 +57,6 @@ class Expert(models.Model):
         ('Short term', 'short_term'),
         ('Long term', 'long_term'),
     )
-    # PPD_CHOICES = (
-    #     ('short_term', 'Short term'),
-    #     ('long_term', 'Long term'),
-    # )
-
     title = models.ForeignKey(Title, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
